@@ -1,0 +1,409 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01BGUH5NI61S83OmU6QVjJMNHDdkzZ3mzb4",
+    "name": "NK AWS initial actions - RouteTables",
+    "title": "NK AWS initial actions - RouteTables",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "NK AWS initial actions - RouteTables",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "target_type": "aws.endpoint",
+        "target_id": "definition_target_0190GSUB2Q8Z26URAkXF0pWgM1hFvhOtXrz",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01BIJGSX9X3D84wVnnWo8exfaI3rGLekjN4",
+        "name": "Create Internet Gateway",
+        "title": "Create Internet Gateway",
+        "type": "aws.create_internet_gateway",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Create Internet Gateway",
+          "name_tag": "Internet Gateway created from AO",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BIJJJXOZO825vB8HwEbRQKlAUoWf6R7MT",
+        "name": "Attach Internet Gateway",
+        "title": "Attach Internet Gateway",
+        "type": "aws.attach_internet_gateway",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Attach Internet Gateway",
+          "internet_gateway_id": "$activity.definition_activity_01BIJGSX9X3D84wVnnWo8exfaI3rGLekjN4.output.internet_gateway_id$",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          },
+          "vpc_id": "vpc-09166511926254d25"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BHM0F13KJQT1oTBm7LvYKGLAcoJMvDQmb",
+        "name": "Describe Route Tables",
+        "title": "Describe All Route Tables",
+        "type": "aws.describe_route_tables",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Describe All Route Tables",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BHM0C1ER5YO1sO0O6sjSW51tEHXuAbWz8",
+        "name": "Create Route Table",
+        "title": "Create Route Table",
+        "type": "aws.create_route_table",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Create Route Table",
+          "name_tag": "Route Table Created from AO",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          },
+          "vpc_id": "vpc-09166511926254d25"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BHMJ463GPC43JSEvmN43t8lMUzzBbXkiK",
+        "name": "Describe Route Tables",
+        "title": "Describe created Route Table by Route Table Id",
+        "type": "aws.describe_route_tables",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Describe created Route Table by Route Table Id",
+          "route_table_ids": [
+            "$activity.definition_activity_01BHM0C1ER5YO1sO0O6sjSW51tEHXuAbWz8.output.route_table_id$"
+          ],
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BHM0HHO772G5BTDBSnD8S4YREzKILYcCQ",
+        "name": "Describe Route Tables",
+        "title": "Describe created Route Tables by Multiple Filters",
+        "type": "aws.describe_route_tables",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Describe created Route Tables by Multiple Filters",
+          "filters": [
+            {
+              "name": "vpc-id",
+              "value": "vpc-09166511926254d25"
+            },
+            {
+              "name": "route-table-id",
+              "value": "$activity.definition_activity_01BHM0C1ER5YO1sO0O6sjSW51tEHXuAbWz8.output.route_table_id$"
+            }
+          ],
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BHM07N9MGP36t2o3vLGJN0Tl07R1IiJFL",
+        "name": "Create Route",
+        "title": "Create Route",
+        "type": "aws.create_route",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "destination_cidr_block": "192.0.2.0/24",
+          "display_name": "Create Route",
+          "gateway_id": "$activity.definition_activity_01BIJGSX9X3D84wVnnWo8exfaI3rGLekjN4.output.internet_gateway_id$",
+          "route_table_id": "$activity.definition_activity_01BHM0C1ER5YO1sO0O6sjSW51tEHXuAbWz8.output.route_table_id$",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BHLZN355MVX4dq8JnDxEZODLEgjiwd5qi",
+        "name": "Associate Subnet with Route Table",
+        "title": "Associate Subnet",
+        "type": "aws.associate_subnet_with_route_table",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Associate Subnet",
+          "route_table_id": "rtb-04f0bd979024488c1",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "subnet_id": "subnet-00ad2a8c2d358e4a4",
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BHLZS01SCJA4CCGEnDf14W0A03jIB8dTq",
+        "name": "Disassociate Subnet from Route Table",
+        "title": "Disassociate Subnet",
+        "type": "aws.disassociate_subnet_with_route_table",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "association_id": "$activity.definition_activity_01BHLZN355MVX4dq8JnDxEZODLEgjiwd5qi.output.association_id$",
+          "continue_on_failure": false,
+          "display_name": "Disassociate Subnet",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BININ6TR02X3wr19ai4SYv27aNGBVLNdB",
+        "name": "Generic AWS API Request",
+        "title": "Generic AWS API Request to Delete Route",
+        "type": "aws.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_call_method": "GET",
+          "api_url": "https://ec2.amazonaws.com/?Action=DeleteRoute\u0026Version=2016-11-15\u0026RouteTableId=$activity.definition_activity_01BHM0C1ER5YO1sO0O6sjSW51tEHXuAbWz8.output.route_table_id$\u0026DestinationCidrBlock=192.0.2.0/24",
+          "continue_on_failure": false,
+          "display_name": "Generic AWS API Request to Delete Route",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BINLL2DBXE85Z2RSW9BXjfqH1qPUzqeeD",
+        "name": "Generic AWS API Request",
+        "title": "Generic AWS API Request to Delete Route Table",
+        "type": "aws.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_call_method": "GET",
+          "api_url": "https://ec2.amazonaws.com/?Action=DeleteRouteTable\u0026Version=2016-11-15\u0026RouteTableId=$activity.definition_activity_01BHM0C1ER5YO1sO0O6sjSW51tEHXuAbWz8.output.route_table_id$",
+          "continue_on_failure": false,
+          "display_name": "Generic AWS API Request to Delete Route Table",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BIMWHKTD65Y1voGE6q0SfafEd66Bef1pp",
+        "name": "Generic AWS API Request",
+        "title": "Generic AWS API Request to Detach Internet Gateway from VPC",
+        "type": "aws.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_call_method": "GET",
+          "api_url": "https://ec2.amazonaws.com/?Action=DetachInternetGateway\u0026Version=2016-11-15\u0026VpcId=vpc-09166511926254d25\u0026InternetGatewayId=$activity.definition_activity_01BIJGSX9X3D84wVnnWo8exfaI3rGLekjN4.output.internet_gateway_id$",
+          "continue_on_failure": false,
+          "display_name": "Generic AWS API Request to Detach Internet Gateway from VPC",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BIN6R93GGAB2lONeSskjvzK1JopSmGqIP",
+        "name": "Generic AWS API Request",
+        "title": "Generic AWS API Request to Delete Internet Gateway",
+        "type": "aws.api_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "api_call_method": "GET",
+          "api_url": "https://ec2.amazonaws.com/?Action=DeleteInternetGateway\u0026Version=2016-11-15\u0026InternetGatewayId=$activity.definition_activity_01BIJGSX9X3D84wVnnWo8exfaI3rGLekjN4.output.internet_gateway_id$",
+          "continue_on_failure": false,
+          "display_name": "Generic AWS API Request to Delete Internet Gateway",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_0190GSUB2Q8Z26URAkXF0pWgM1hFvhOtXrz": {
+      "unique_name": "definition_target_0190GSUB2Q8Z26URAkXF0pWgM1hFvhOtXrz",
+      "name": "NK AWS Endpoint Target",
+      "title": "NK AWS Endpoint Target",
+      "type": "aws.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_0190GP2DELVXO4rKOmVoBO9Zy2hNlni3vhE",
+        "description": "test",
+        "display_name": "NK AWS Endpoint Target",
+        "ignore_proxy": true,
+        "region": "us-east-1"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_0190GP2DELVXO4rKOmVoBO9Zy2hNlni3vhE": {
+      "unique_name": "definition_runtime_user_0190GP2DELVXO4rKOmVoBO9Zy2hNlni3vhE",
+      "name": "NK AccKey AWS Cred",
+      "title": "NK AccKey AWS Cred",
+      "type": "runtime_user.aws_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "access_key": "*****",
+        "display_name": "NK AccKey AWS Cred",
+        "secret_key": "*****"
+      }
+    }
+  }
+}
