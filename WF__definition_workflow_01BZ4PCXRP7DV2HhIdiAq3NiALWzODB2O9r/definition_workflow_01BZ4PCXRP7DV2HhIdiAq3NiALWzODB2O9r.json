@@ -1,0 +1,169 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01BZ4PCXRP7DV2HhIdiAq3NiALWzODB2O9r",
+    "name": "Copy-Dev_WF_10_Actions",
+    "title": "Copy-Dev_WF_10_Actions",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Copy-Dev_WF_10_Actions",
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01BZ4PDAYGOC92u7OAelMbz2H4eLgeCHddM",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BZ4PDEJRB1O4Yqu7K2Gjk9C4dXNvl6GZa",
+        "name": "Sleep",
+        "title": "Sleep_1",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep_1",
+          "skip_execution": false,
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BZ4PDOIL4OI2JHpx7LTALC1i8PyswJwXx",
+        "name": "Sleep",
+        "title": "Sleep_2",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep_2",
+          "skip_execution": false,
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BZ4PDTZNWKX2ESa1yyxtOOXjt0pgPYG8F",
+        "name": "Sleep",
+        "title": "Sleep_3",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep_3",
+          "skip_execution": false,
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BZ4PDYJAVRB1XZvXp9HpEnN9j3DdqbsKe",
+        "name": "Sleep",
+        "title": "Sleep_4",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep_4",
+          "skip_execution": false,
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BZ4PE2WLGNL1IJfCj7gXT2dGwgisA2NOK",
+        "name": "Sleep",
+        "title": "Sleep_5",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep_5",
+          "skip_execution": false,
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BZ4PE6EAKD56jpVXlc1vWMoeZg3JgByFW",
+        "name": "Sleep",
+        "title": "Sleep_6",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep_6",
+          "skip_execution": false,
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BZ4PE9TJSU67GqMEoj8iRBhIksjAwGLtV",
+        "name": "Sleep",
+        "title": "Sleep_7",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep_7",
+          "skip_execution": false,
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BZ4PEDCRZU66FhLl4pPUmVZdtnexmDuMi",
+        "name": "Sleep",
+        "title": "Sleep_8",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep_8",
+          "skip_execution": false,
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BZ4PEHDLFUB5uD1EL2GwZawvOQVhFJzYB",
+        "name": "Sleep",
+        "title": "Sleep_9",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep_9",
+          "skip_execution": false,
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
