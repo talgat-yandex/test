@@ -1,0 +1,125 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01BN4YJG9KIUL4LudBNvvK1NZxmjY1Iq7p2",
+    "name": "Dev_WF_Validate_NEXTG_14665",
+    "title": "Dev_WF_Validate_NEXTG_14665",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "tabletype_01BN4ZREFXBAA0WOM2M4lKglVTczNg7OEpP",
+        "properties": {
+          "value": [
+            {
+              "column_data": {
+                "EmpID": "10",
+                "EmpName": "LH"
+              }
+            },
+            {
+              "column_data": {
+                "EmpID": "20",
+                "EmpName": "PSC"
+              }
+            }
+          ],
+          "scope": "input",
+          "name": "input_emp",
+          "type": "datatype.table",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01BN501KF2MQ07lU1IEzZc8Mke1ZWDzO5W1",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "46654655",
+      "display_name": "Dev_WF_Validate_NEXTG_14665",
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01BN503CR6CMT4ItvmTXYLtF43PRHLQg4Vq",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01BN508TNFSZI2JdsEH6SOUYM31r08x9SNH",
+        "name": "Select from Table",
+        "title": "Select from Table",
+        "type": "core.selectfromtable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "columns": [
+            {
+              "column_name": "EmpID",
+              "column_type": "string"
+            },
+            {
+              "column_name": "EmpName",
+              "column_type": "string"
+            }
+          ],
+          "continue_on_failure": false,
+          "display_name": "Select from Table",
+          "input_table": "$workflow.definition_workflow_01BN4YJG9KIUL4LudBNvvK1NZxmjY1Iq7p2.input.variable_workflow_01BN501KF2MQ07lU1IEzZc8Mke1ZWDzO5W1$",
+          "number_of_rows": {
+            "all_rows": true,
+            "at_most": false
+          },
+          "persist_output": false,
+          "skip_execution": false,
+          "sorting": {
+            "no_sort": true,
+            "sort_by": false
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "table_types": {
+    "tabletype_01BN4ZREFXBAA0WOM2M4lKglVTczNg7OEpP": {
+      "unique_name": "tabletype_01BN4ZREFXBAA0WOM2M4lKglVTczNg7OEpP",
+      "data_type": "datatype.tabletype",
+      "display_name": "NEXTG-14655",
+      "columns": [
+        {
+          "name": "EmpID",
+          "title": "EmpID",
+          "type": "string"
+        },
+        {
+          "name": "EmpName",
+          "title": "EmpName",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  }
+}
